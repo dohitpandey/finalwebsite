@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body>
+<a href ='/' style="position: absolute;
+    left: 90%;">Back to Login</a>
+
+<div style="position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);">
+
+    <form method="post" action="{% url 'save' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value=""><br><br>
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" value=""><br><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value=""><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" value=""><br><br>
+        <input type="submit" name="submit" value="Sign Up">
+    </form>
+    <br><b><p>{{ msg }}</b></p>
+
+</div>
+</body>
+</html>
