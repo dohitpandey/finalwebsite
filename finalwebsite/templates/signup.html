@@ -13,10 +13,12 @@
     left: 50%;
     transform: translate(-50%,-50%);">
 
-    <form method="post" action="{% url 'save' %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'save&check' %}">
         {% csrf_token %}
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value=""><br><br>
+        <label for="file">Profile Picture:</label><br>
+        <input type="file" id="file" name="file"><br><br>
         <label for="phone">Phone:</label><br>
         <input type="text" id="phone" name="phone" value=""><br><br>
         <label for="email">Email:</label><br>

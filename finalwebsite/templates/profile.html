@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ userdetails.name }}'s profile</title>
+</head>
+
+<body>
+
+<center>
+<img src="/media/{{ userdetails.profile_pic }}/" alt="Avatar" class="avatar" style = "vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;">
+
+<p></p><br>
+
+<table border="2">
+<thead>
+<tr>
+<th scope="col" colspan="1">Name</th>
+<th scope="col">Phone no.</th>
+<th scope="col">Email Id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><center>{{ userdetails.name }}</center></td>
+<td><center>{{ userdetails.phone }}</center></td>
+<td><center>{{ userdetails.email }}</center></td>
+</tr>
+</tbody>
+</table>
+
+</center>
+</body>
+</html>

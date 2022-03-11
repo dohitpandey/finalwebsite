@@ -3,13 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+
 </head>
 <body>
-<div style="position: absolute;
-    top:  50%;
-    left: 50%;
-    transform: translate(-50%,-50%);">
-<center><h1>welcome to homepage</h1></center>
+
+<center><div>
+    <form action="{% url 'homepage' %}" method="get">
+    <input type="text" name="name" value="">
+    <input type="submit" value="Search">
+    </form>
+</div></center>
+
+<div id ="searchresult" style="
+    position: absolute;
+    left: 29%;
+  background-color: lightgrey;
+  width: 450px;
+  border: 1px black;
+  padding: 15px;
+  margin: 20px;">
+    <center>
+        {% for val in userdetails %}
+    <span><a href ='/profile/{{ val.nameslug }}/'> {{val.name}}  | </a></span>
+        {% empty %}
+        {% if ok %}
+        <span>No User Found</span>
+        {% endif %}
+        {% endfor %}
+    </center>
 </div>
+
+<div style="position: absolute;
+    left: 80%;">
+    <h4 >SUGGESTIONS</h4>
+    {% for val in suggestions %}
+    <form action="{% url 'suggestions' %}" method="post">
+        {% csrf_token %}
+        <center><b><p>{{ val.name }}</p></b></center>
+        <center><p><button type="submit" name="submit" value ="{{ val.id }}">Follow</button></p></center>
+    </form>
+    {% endfor %}
+</div>
+
+<div style="position: absolute;
+    right: 80%;">
+    <h4>FRIEND LIST</h4>
+    {% for val in frnds %}
+    <form action="{% url 'friend' %}" method="post">
+        {% csrf_token %}
+        <center><b><p>{{ val.name }}</user></p></b></center>
+        <center><p><button type="submit" name ="submit" value="{{ val.id }}">Unfollow</button></p></center>
+    </form>
+    {% endfor %}
+</div>
+
 </body>
+
 </html>
